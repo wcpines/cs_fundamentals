@@ -1,14 +1,4 @@
-class Node
-
-  attr_accessor  :value, :next, :prev
-
-  def initialize(value, next_node=nil, prev_node=nil)
-    self.value = value
-    self.next = next_node
-    self.prev = prev_node
-  end
-end
-
+require_relative "./node.rb"
 class LinkedList
 
   attr_accessor :head, :tail, :size
@@ -94,19 +84,6 @@ class LinkedList
     node
   end
 
-  def pop
-    return "nil" if self.size == 0
-    if self.size == 1
-      popped = self.head
-      self.head = self.tail = nil
-    else
-      new_tail = self.tail.prev
-      popped = new_tail.next
-      delete_next(new_tail)
-    end
-    popped # see comment in #delete_at
-  end
-
   # inserts new node behind target node
   def insert_at(node, index)
     target = self.at(index)
@@ -122,7 +99,6 @@ class LinkedList
     target = self.at(index)
     target_prev = target.prev
     target_next = target.next
-    deleted = target
     target = nil
     self.size -= 1
     if self.size == 1
@@ -131,7 +107,7 @@ class LinkedList
     else
       set_next_and_prev(target_prev, target_next)
     end
-    deleted # will this just be stuck in memory? How can I garbage collect deleted nodes *and* return them?
+    self.size
   end
 
   def reverse
