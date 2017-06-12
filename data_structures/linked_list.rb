@@ -1,10 +1,10 @@
-require_relative "./node.rb"
+require_relative "node"
 class LinkedList
 
   attr_accessor :head, :tail, :size
 
   def initialize(value)
-    self.head = Node.new(value)
+    self.head = ListNode.new(value)
     self.tail = self.head
     self.size = 1
   end
@@ -22,7 +22,7 @@ class LinkedList
 
   # Add a node to the end of the list
   def append(value)
-    new_node = Node.new(value)
+    new_node = ListNode.new(value)
     if self.head.nil?
       self.head = self.tail = new_node
       self.size = 1
@@ -36,7 +36,7 @@ class LinkedList
 
   # Add a node to the beginning of the list.
   def preprend(value)
-    new_node = Node.new(value)
+    new_node = ListNode.new(value)
     if self.head.nil?
       self.head = self.tail = new_node
       self.size = 1

@@ -1,4 +1,4 @@
-class Node
+class ListNode
 
   attr_accessor  :value, :next, :prev
 

@@ -1,4 +1,4 @@
-require_relative "./linked_list.rb"
+require_relative "linked_list"
 
 class Queue < LinkedList
 
