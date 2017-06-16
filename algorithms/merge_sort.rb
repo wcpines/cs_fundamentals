@@ -1,3 +1,4 @@
+# FIXME: incomplete
 def merge_sort(collection)
   return collection if collection.length
 
